@@ -3,7 +3,30 @@ h1 {
     font-family: Arial, Helvetica, sans-serif
 }
 
-#decorateButton {
+#createListBlock {
     display: flex;
     justify-content: center;
+}
+
+#createListBlock * {
+    margin: 0.1rem
+}
+
+#lists {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.list {
+    background-color: rgb(224, 219, 219);
+    margin: 2rem 1rem 2rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    max-width: fit-content;
+}
+
+.list h3 {
+    text-align: center;
+    background-color: grey;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
