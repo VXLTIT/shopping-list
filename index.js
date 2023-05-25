@@ -8,21 +8,27 @@ createListButton.addEventListener('click', createList);
 
 
 function createList() {
-    let name = document.createElement('h3');
-    name.textContent = inputName.value;
-    inputName.value = '';
 
+    if(!inputName.value) return 0;
+
+    // Объявление переменных необходимых для создания одного списка:
     let inputItemName = document.createElement('input');
-    let buttonCreateItem = document.createElement('button');
+    let createItemButton = document.createElement('button');
     let list = document.createElement('div');
     let orderedItemList = document.createElement('ol');
     let removeListButton = document.createElement('button');
     let listNameBlock = document.createElement('div');
+    let listInputBlock = document.createElement('div');
+    let name = document.createElement('h3');
+
+
+    name.textContent = inputName.value;
+    inputName.value = '';
 
     listNameBlock.id = 'listNameBlock';
     removeListButton.id = 'removeListButton';
 
-    buttonCreateItem.textContent = 'Добавить';
+    createItemButton.textContent = 'Добавить';
     removeListButton.textContent = 'Удалить лист';
     
     list.id = 'list' + countLists;
@@ -34,27 +40,49 @@ function createList() {
     listNameBlock.appendChild(name);
     listNameBlock.appendChild(removeListButton);
 
-    list.appendChild(inputItemName);
-    list.appendChild(buttonCreateItem);
+    list.appendChild(listInputBlock);
+
+    listInputBlock.appendChild(inputItemName);
+    listInputBlock.appendChild(createItemButton);
     list.appendChild(orderedItemList);
 
-    buttonCreateItem.addEventListener('click', createItem);
+    createItemButton.addEventListener('click', createItem);
     removeListButton.addEventListener('click', removeList);
+
     countLists++;
+
 
     function createItem() {
 
-    let item = document.createElement('li');
-    item.textContent = inputItemName.value;
-    inputItemName.value = '';
+        if (!inputItemName.value) return 0;
 
-    orderedItemList.appendChild(item);
 
-    }
-
-    function removeList() {
-        list.remove();
+        let li = document.createElement('li');
+        let item = document.createElement('div');
+        let itemText = document.createElement('p');
+        let removeItemButton = document.createElement('button');
+    
+        itemText.textContent = inputItemName.value;
+        inputItemName.value = '';
+    
+        removeItemButton.textContent = 'Удалить элемент';
+    
+        orderedItemList.appendChild(li);
+        li.appendChild(item);
+        item.appendChild(itemText);
+        item.appendChild(removeItemButton);
+    
+        removeItemButton.addEventListener('click', removeItem);
+    
     }
 
 }
 
+
+function removeList() {
+    this.parentElement.parentElement.remove();
+}
+
+function removeItem() {
+    this.parentElement.parentElement.remove();
+}

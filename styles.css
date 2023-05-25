@@ -46,3 +46,36 @@ h1 {
     flex-grow: 0;
     margin: auto 0;
 }
+
+#listNameBlock + div {
+    display: flex;
+}
+
+#listNameBlock + div button {
+    flex-grow: 0;
+}
+
+#listNameBlock + div input {
+    flex-grow: 1;
+}
+
+li {
+    margin: 0 0 0.2rem 0;
+    padding-right: 0;
+    background-color: grey;;
+}
+
+li div {
+    display: flex;
+    justify-content: center;
+}
+
+li button {
+    flex-grow:0;
+    margin: auto 0;
+}
+
+li p {
+    flex-grow: 1;
+    margin: 0 1rem 0 0;
+}
